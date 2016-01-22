@@ -1,58 +1,34 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Lives on 阿义</title>
+    <title>Lives on 传义</title>
     <link>http://chuanyi.github.io/life/</link>
-    <description>Recent content in Lives on 阿义</description>
+    <description>Recent content in Lives on 传义</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Thu, 21 Jan 2016 14:09:57 +0800</lastBuildDate>
+    <lastBuildDate>Thu, 21 Jan 2016 14:09:54 +0800</lastBuildDate>
     <atom:link href="http://chuanyi.github.io/life/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
-      <title>article4</title>
-      <link>http://chuanyi.github.io/life/article4/</link>
-      <pubDate>Thu, 21 Jan 2016 14:09:57 +0800</pubDate>
-      
-      <guid>http://chuanyi.github.io/life/article4/</guid>
-      <description>
-
-&lt;p&gt;name = &amp;ldquo;Hyde&amp;rdquo;
-license = &amp;ldquo;MIT&amp;rdquo;
-licenselink = &amp;ldquo;&lt;a href=&#34;https://github.com/spf13/hyde/blob/master/LICENSE.md&amp;quot;&#34;&gt;https://github.com/spf13/hyde/blob/master/LICENSE.md&amp;quot;&lt;/a&gt;
-description = &amp;ldquo;An elegant open source and mobile first theme&amp;rdquo;
-homepage = &amp;ldquo;&lt;a href=&#34;http://siteforthistheme.com/&amp;quot;&#34;&gt;http://siteforthistheme.com/&amp;quot;&lt;/a&gt;
-tags = [&amp;ldquo;blog&amp;rdquo;, &amp;ldquo;company&amp;rdquo;]
-features = [&amp;ldquo;blog&amp;rdquo;, ]
-min_version = 0.13&lt;/p&gt;
-
-&lt;p&gt;[author]
-    name = &amp;ldquo;spf13&amp;rdquo;
-    homepage = &amp;ldquo;&lt;a href=&#34;http://spf13.com/&amp;quot;&#34;&gt;http://spf13.com/&amp;quot;&lt;/a&gt;&lt;/p&gt;
-
-&lt;h1 id=&#34;if-porting-an-existing-theme:40c2cd6b500160f38752242d11dedee4&#34;&gt;If porting an existing theme&lt;/h1&gt;
-
-&lt;p&gt;[original]
-    author = &amp;ldquo;mdo&amp;rdquo;
-    homepage = &amp;ldquo;&lt;a href=&#34;http://hyde.getpoole.com/&amp;quot;&#34;&gt;http://hyde.getpoole.com/&amp;quot;&lt;/a&gt;
-    repo = &amp;ldquo;&lt;a href=&#34;https://www.github.com/mdo/hyde&amp;quot;&#34;&gt;https://www.github.com/mdo/hyde&amp;quot;&lt;/a&gt;
-Notes:&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>article3</title>
-      <link>http://chuanyi.github.io/life/article3/</link>
+      <title>2016猴年计划</title>
+      <link>http://chuanyi.github.io/life/2016_plan/</link>
       <pubDate>Thu, 21 Jan 2016 14:09:54 +0800</pubDate>
       
-      <guid>http://chuanyi.github.io/life/article3/</guid>
-      <description>&lt;p&gt;Adding a theme to the list
-Create your theme using hugo new theme THEMENAME;
-Test your theme against &lt;a href=&#34;https://github.com/spf13/HugoBasicExample&#34;&gt;https://github.com/spf13/HugoBasicExample&lt;/a&gt;;
-Add a theme.toml file to the root of the theme;
-Add a README.md to the root of the theme;
-Add /images/screenshot.png and /images/tn.png;
-Open up a new Issue with a link to the theme&amp;rsquo;s repository on GitHub.
-If your theme doesn&amp;rsquo;t fit into the Hugo Basic Example site, we encourage theme authors to supply a self-contained Hugo site in /exampleSite. NOTE: The folder name here is important, as this folder will be picked up and used by the script that generates the Hugo Theme Site. See Artist theme&amp;rsquo;s exampleSite for a good example. And please make the site&amp;rsquo;s content as neutral as possible.&lt;/p&gt;
+      <guid>http://chuanyi.github.io/life/2016_plan/</guid>
+      <description>&lt;p&gt;2015年开辟了好多领域但都没深入，安排也比较混乱；
+今年换个思路，构想一个好的作品，把感兴趣的领域都融入进去，边做边学；&lt;/p&gt;
+
+&lt;p&gt;2016年首先得安排两到三次旅行，带父母出去转转，缓解从农村出来待城市的各种不习惯；
+也让整天照顾孩子的媳妇放松放松心情。&lt;/p&gt;
+
+&lt;p&gt;然后伙同爱好者一起通过开源硬件知识和机器学习软件制作一款实物机器人，暂且命名为Robot壹号，可行走、可语音或视觉交互、可思考，一则贯穿学习开源硬件和数学知识，一则体验一次从零完整实现一个复杂产品的过程；说到容易做到难，今天先把牛皮吹出来。&lt;/p&gt;
+
+&lt;p&gt;读书计划拓展重在扫盲，通过泡维基百科等途径，系统梳理各领域常识；以前追求全栈，但全栈已成基本要求，跨界才能解决创意问题，为未来选择产品方向打下基础；重点学习国学智慧，避免做人做偏了。&lt;/p&gt;
+
+&lt;p&gt;兴趣爱好方面，坚持业余时间画画素描；并投入一些经历研究和实践儿童教育问题，子不教，父之过；培养一个体育爱好陪孩子一起锻炼。&lt;/p&gt;
+
+&lt;p&gt;差不多了，基本思路就像小米2016规划的那样，回归初心，“做自己觉得酷的产品，享受创业的过程”。&lt;/p&gt;
+
+&lt;p&gt;计划做的有点晚，就从现在开始吧!&lt;/p&gt;
 </description>
     </item>
     
