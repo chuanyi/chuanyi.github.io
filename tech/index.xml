@@ -72,7 +72,7 @@ _ &amp;quot;whitespace&amp;quot;
 
 &lt;p&gt;时间很宝贵，DSL设计完成后，解析代码切勿徒手实现，请用Parser generator，如果是Javascript技术栈，请用PEG.js。&lt;/p&gt;
 
-&lt;p&gt;官网链接：&lt;a href=&#34;pegjs.org&#34;&gt;pegjs.org&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;官网链接：&lt;a href=&#34;https://pegjs.org&#34;&gt;https://pegjs.org&lt;/a&gt;&lt;/p&gt;
 </description>
     </item>
     
