@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="description" content="IT人，乐活主义">
+	<meta name="author" content="Zheng Chuanyi">
+	
+	<title>DSL领域建模利器PEGjs</title> 
+	
+	
+	<link href="http://chuanyi.github.io/css/style.css" rel="stylesheet">
+</head>	
+<body>
+<div id="wrapper">
+	<div id="sidebar-wrapper">
+		<div class="sidebar-title">
+			<h1 id="site-title"><a href="http://chuanyi.github.io/">传义</a></h1>
+			<p class="lead blog-description">IT人，乐活主义</p>
+		</div>
+
+		<ul class="sidebar-nav">
+		
+			<li class="sidebar-nav-item"><a href="http://chuanyi.github.io/tech/" title="技术">技术</a></li>
+		
+			<li class="sidebar-nav-item"><a href="http://chuanyi.github.io/product/" title="产品">产品</a></li>
+		
+			<li class="sidebar-nav-item"><a href="http://chuanyi.github.io/starter/" title="创业">创业</a></li>
+		
+			<li class="sidebar-nav-item"><a href="http://chuanyi.github.io/read/" title="阅读">阅读</a></li>
+		
+			<li class="sidebar-nav-item"><a href="http://chuanyi.github.io/about/" title="关于">关于</a></li>
+		
+		</ul>
+	</div>
+	<div id="content-wrapper">
+    <div class="post">
+      <h1 class="post-title">DSL领域建模利器PEGjs</h1>
+      <div class="post-date">Sun, Feb 5, 2017</div>
+      
+
+<h1 id="dsl领域建模利器-peg-js:a6557264be9caa5064a32615433624c5">DSL领域建模利器 PEG.js</h1>
+
+<p>开发过程中经常会为了合理分离代码的业务部分和技术部分，把问题域抽象为一种DSL领域建模表达，领域建模语言只关注业务，不会出现技术代码，故非常便于快速业务堆叠和后期业务逻辑维护。</p>
+
+<p>但自己发明的DSL，需要自己配套实现一个解析引擎来转换为技术实现，之前一直用纯文本来存储和表达，但手写解析器相当麻烦且不专业（字符串拆解），后期提供了DSL的可视化设计界面，改用JSON存储，格式很规整，但牺牲了文本可编辑性，也偏离了DSL的意义；还有办法就是用YACC那些编译原理的套路实现，很正统但是上手复杂，杀鸡不值得动用牛刀。</p>
+
+<p>刷微博偶遇PEG.js，把DSL解析工作简化的相当人性化，把格式语法定义出来，解析器也就完成了，真是相见恨晚。</p>
+
+<p>以做个的一个工作流模块为例，之前设计的DSL格式是这样的：</p>
+
+<blockquote>
+<p>flow 事件列表
+init:
+   c.录入 info -&gt; c.未处理
+   c.批量导出 info2 -&gt; c.未处理
+   c.处理登记 info3 -&gt; c.未处理
+   c.推送消息 info2 -&gt; c.处理中
+   c.派发公文 info2 -&gt; c.处理中
+c.未处理:
+   c.派发公文 info2 -&gt; c.处理中
+c.处理中:
+   c.处理登记 info3 -&gt; c.已处理</p>
+</blockquote>
+
+<p>flow 声明一个工作流，后面是一堆FSM状态机，每个状态下接受多个Action，每个Action后跟着工作流状态表单以及下一个状态，解析引擎会根据这个工作流的DSL自动运转，之前徒手解析上述语法相当费事且浪费时间，代码略，改用PEG.js，只需如下语法定义，一个解析器就完成了。</p>
+
+<pre><code class="language-javascript">Flow = &quot;flow&quot; _ name:Name _ states:( State )+ {
+   return {name:name, states:states};
+}
+
+State = name:Name &quot;:&quot; _ trans:( Trans )+ {
+   return {name:name, trans:trans};
+}
+
+Trans = from:Name _ form:Name _ &quot;-&gt;&quot; _ to:Name _ {
+   return {from:from, form:form, to:to};
+}
+
+Name = [\u4E00-\u9FA5\uf900-\ufa2da-zA-Z0-9_.]+ {
+   return text();
+}
+
+_ &quot;whitespace&quot;
+  = [ \t\n\r]*
+</code></pre>
+
+<p>PEGjs的语法相当简单，会使用正则表达式的朋友一看即懂，PEGjs支持即时插入javascript片段来自定义解析过程处理，对于表达式类型的DSL文法相当擅长。</p>
+
+<p>PEGjs不直接支持左递归文法的问题，在设计DSL时回避即可，其实几乎不会用到。</p>
+
+<h3 id="总结:a6557264be9caa5064a32615433624c5">总结</h3>
+
+<p>时间很宝贵，业务密集型的代码务必拆分业务部分和技术部分，请用DSL；</p>
+
+<p>时间很宝贵，DSL设计完成后，解析代码切勿徒手实现，请用Parser generator，如果是Javascript技术栈，请用PEG.js。</p>
+
+<p>官网链接：<a href="pegjs.org">pegjs.org</a></p>
+
+    </div>
+    <ul class="pager">
+        
+      
+      &nbsp;<li class="next"><a href="http://chuanyi.github.io/read/002_howtoread/"> 《书都不会读，你还想成功》</a></li>
+      
+    </ul>
+    <div class="ds-thread" data-thread-key="/tech/001_pegjs/" data-title="DSL领域建模利器PEGjs" data-url="http://chuanyi.github.io/tech/001_pegjs/"></div>
+    <script type="text/javascript">
+	var duoshuoQuery = {short_name:"chuanyiblog"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+</script>
+	</div>
+</div>
+</body>
+</html>
